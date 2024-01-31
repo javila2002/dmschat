@@ -49,7 +49,7 @@ class DMSChatView extends React.Component {
                     {
                       /*refresh token*/
 
-                      var tknDate = new Date(new String(resident.User.AzureTokenExpire).split("T")[0]);
+                      var tknDate = new Date(String(resident.User.AzureTokenExpire).split("T")[0]);
                       var tknToday = new Date(`${new Date().getFullYear()}/${new Date().getMonth()+1}/${new Date().getDate()}`);
                       var tkndiff = (Math.floor(tknDate - tknToday) / 86400000);  
                     
@@ -430,8 +430,7 @@ class DMSChatView extends React.Component {
 
 
   renderMessages(){
-    if (this.state.currentMessages != null){
-      
+    if (this.state.currentMessages != null){      
       return(
         <List 
          data={this.state.currentMessages} 
