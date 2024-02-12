@@ -1,4 +1,5 @@
 {
+  "proxy": "https://victorious-stone-0af61a110.4.azurestaticapps.net/",
   "name": "dmschat",
   "version": "0.1.0",
   "private": true,
