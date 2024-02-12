@@ -495,7 +495,7 @@ class DMSChatView extends React.Component {
 
       <div style={stMain} id = 'mainStructure' >
           <div id='dvTitle' style={{"width":"218px","height":"35px","fontSize":"12px"}} >
-             <img src={ process.env.PUBLIC_URL + "/Img/chat_logo.png" } style={{float:'left',marginTop:'3px'}} />
+             <img src={ process.env.PUBLIC_URL + "/img/chat_logo.png" } style={{float:'left',marginTop:'3px'}} />
              <span style={{
                float: 'left',
                fontSize: '13px',

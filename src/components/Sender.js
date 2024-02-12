@@ -11,9 +11,9 @@ class Sender extends React.Component
         this.state = {
               messagetoSend : '',
               isDisabled : true,
-              iconSendenabled : `url('${ process.env.PUBLIC_URL + "/Img/send_image.png" }')`,
-              iconSenddisabled : `url('${ process.env.PUBLIC_URL + "/Img/send_image_dsb.png" }')`,
-              icontoSent:`url('${ process.env.PUBLIC_URL + "/Img/send_image_dsb.png" }')`
+              iconSendenabled : `url('${ process.env.PUBLIC_URL + "/img/send_image.png" }')`,
+              iconSenddisabled : `url('${ process.env.PUBLIC_URL + "/img/send_image_dsb.png" }')`,
+              icontoSent:`url('${ process.env.PUBLIC_URL + "/img/send_image_dsb.png" }')`
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
