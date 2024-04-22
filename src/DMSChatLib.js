@@ -191,8 +191,7 @@ const DMSChatLib = {
         
         axios({
              method: "post"
-            ,url: e.url
-            ,headers: {'Access-Control-Allow-Origin':'*'}
+            ,url: e.url            
             })
             .then(response => {
                 if (e.onExecuted){
