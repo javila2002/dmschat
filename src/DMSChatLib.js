@@ -184,8 +184,7 @@ const DMSChatLib = {
 
    },
 
-   
-    callData : async function (e) {
+   callData : async function (e) {
         e.url = DMSChatLib.getSpecialChars(e.url);
         var hd = (undefined !== e.headers ? e.headers : {})
         axios({
