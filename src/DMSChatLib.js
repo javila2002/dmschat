@@ -189,9 +189,9 @@ const DMSChatLib = {
         e.url = DMSChatLib.getSpecialChars(e.url);
         var hd = (undefined !== e.headers ? e.headers : {})
         axios({
-             method: "post"
-            ,url: e.url
-            ,headers:{}
+              method: "post"
+            , url : e.url
+            , headers : {}
             })
             .then(response => {
                 if (e.onExecuted){
