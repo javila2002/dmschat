@@ -345,7 +345,7 @@ getSpecialChars : function($d)  {
 
          var $hSupp = (e.forceByHeader  ? DMSChatLib.getSupportByHeader(e.url) : {url:e.url,headers:{}});
          $spUrl = $hSupp.url;
-         hd = {...e.headers,...$hSupp.headers,...{'Access-Control-Allow-Origin':'*'}}
+         hd = {...e.headers,...$hSupp.headers}
          
 
          axios({
