@@ -260,7 +260,6 @@ getSpecialChars : function($d)  {
       const createThreadRequest = {
          topic: e.chatTitle
       }
-
       const createChatThreadOptions = {
          participants :[
             {
@@ -269,13 +268,13 @@ getSpecialChars : function($d)  {
             }
          ]
       }
-
       const createChatThreadResult = await e.chatClient.createChatThread(
          createThreadRequest,
          createChatThreadOptions
       );
-
       const threadId = createChatThreadResult.chatThread.id;
+
+      
 
       e.onExecuted({'threadId':threadId});
 

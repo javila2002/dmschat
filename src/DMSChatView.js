@@ -154,7 +154,8 @@ class DMSChatView extends React.Component {
 
                                 this.getChannelld({
                                    chatClient:chatClient
-                                  ,onExecuted:(channelId)=>{
+                                   ,user:user
+                                   ,onExecuted:(channelId)=>{
 
                                     DMSChatLib.getChannel({
                                       channelId:channelId.threadId
@@ -248,12 +249,15 @@ class DMSChatView extends React.Component {
     var {resident} = this.state;
    
     if (resident.Home.Complex.AzureChannelId === ''){
+      
       DMSChatLib.createChannel({
         chatTitle : resident.Home.Complex.Description,
         UserId : DMSChatKeys.userAzureId,
         userDisplayName : 'Domus Administrator',
         chatClient:e.chatClient,
         onExecuted:(reponse)=>{
+
+         
 
           DMSChatLib.updateChannelThreadId({
             ComplexId:resident.Home.Complex.Id
@@ -266,6 +270,25 @@ class DMSChatView extends React.Component {
                  ,onExecuted:(chatThreadClient)=>{
 
                     e.onExecuted(chatThreadClient)
+
+                      /**
+                     * Unimos al usuario base que creo el canal al canal
+                     * 
+                     */
+                      this.joinAdminToChannel({
+                         threadId:reponse.threadId
+                        ,chatClient:e.chatClient
+                        ,user:e.user
+                        ,resident:resident
+                        ,onExecuted: ()=>{
+                            /*joined... */
+                        }
+                      })
+                  
+                     /* */
+
+
+
 
                  }
                });
@@ -288,6 +311,27 @@ class DMSChatView extends React.Component {
 
     }
     
+
+  }
+
+
+  joinAdminToChannel(e){
+
+    DMSChatLib.getChannel({
+      channelId:e.threadId
+     ,chatClient:e.chatClient
+     ,onExecuted:(chatThreadClient)=>{                               
+               
+           DMSChatLib.joinNewUserToChat({
+            communicationUserId:{"communicationUserId":DMSChatKeys.userAzureId} 
+           ,displayName : e.resident.User.Description
+           ,chatThreadClient:chatThreadClient
+           ,onExecuted : (joinedResult)=>{
+              e.onExecuted('Done');
+           }
+          })
+        }
+      })
 
   }
 
